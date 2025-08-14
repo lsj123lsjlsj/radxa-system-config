@@ -1,0 +1,3 @@
+# DRM 热插拔事件（所有显卡/连接器）；用 systemd-run 异步运行修复脚本
+SUBSYSTEM=="drm", ACTION=="change", ENV{HOTPLUG}=="1", \
+  RUN+="/usr/bin/systemd-run --no-block /usr/bin/hdmi-hotplug-fix.sh %k"
